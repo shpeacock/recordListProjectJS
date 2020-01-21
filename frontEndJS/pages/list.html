@@ -37,8 +37,8 @@
                 {{record.rating}}
             </td>
             <td>
-                <button type="buton" class="btn btn-success" (click)="editRecord(record._id)">Edit</button>
-                <button type="button" class="btn btn-danger" (click)="deleteRecord(record._id">Delete</button>
+                <button type="buton" class="btn btn-success" ng-click="editRecord(record._id)">Edit</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteRecord(record._id)">Delete</button>
             </td>
         </tr>
     </tbody>

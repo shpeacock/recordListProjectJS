@@ -17,25 +17,31 @@ recordApp.config(function($routeProvider) {
 });
 
 recordApp.controller('listController', function($scope, $http) {
-    $scope.message = 'list controller on deck son';
     $scope.records = [];
 
     $http.get("http://localhost:4000/records").success(function(data) {
         $scope.records = data;
     });
+
+    $scope.deleteRecord = function(id) {
+        $http.get(`http://localhost:4000/records/delete/${id}`);
+    };
 });
 
-recordApp.controller('createController', function($scope) {
+recordApp.controller('createController', function($scope, $http, $window) {
     $scope.message = 'create controller on deck son';
+    $scope.newRecord = null;
 
     $scope.saveRecord = function() {
-        $scope.newRecord = null;
-        let record = {
-            title: newRecord.title,
-            artist: newRecord.artist,
-            genre: newRecord.genre,
-            rating: newRecord.rating,
-        }
-        console.log(record);
+        const record = {
+            title: $scope.newRecord.title,
+            artist: $scope.newRecord.artist,
+            genre: $scope.newRecord.genre,
+            rating: $scope.newRecord.rating
+        };
+
+        $http.post(`http://localhost:4000/records/add`, record).success(function() {
+            $window.location.href = '/list';
+        })
     }
 });
