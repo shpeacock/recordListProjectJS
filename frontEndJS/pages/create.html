@@ -1,0 +1,15 @@
+<div class="jumbotron text-center">
+    <h1>Add A record</h1>
+</div>
+<form>
+    <label>Artist</label>
+    <input type="text" name="artist" ng-model="newAlbum.artist">
+    <label>Title</label>
+    <input type="text" name="title" ng-model="newAlbum.title">
+    <label>Genre</label>
+    <input type="text" name="genre" ng-model="newAlbum.genre">
+    <label>Rating</label>
+    <input type="text" name="rating" ng-model="newAlbum.rating">
+    <input type="hidden" ng-model="newAlbum._id">
+    <input type="button" value="save" ng-click="saveAlbum()">
+</form>

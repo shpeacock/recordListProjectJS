@@ -1,0 +1,45 @@
+<div class="jumbotron text-center">
+    <h1>Records That Saved My Life </h1>
+</div>
+<button type="button" class="btn"> <a href="#/create"> Add A Record</a></button>
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                Title
+            </td>
+            <td>
+                Artist
+            </td>
+            <td>
+                Genre
+            </td>
+            <td>
+                Rating
+            </td>
+            <td>
+                Actions
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="record in records">
+            <td>
+                {{record.title}}
+            </td>
+            <td>
+                {{record.artist}}
+            </td>
+            <td>
+                {{record.genre}}
+            </td>
+            <td>
+                {{record.rating}}
+            </td>
+            <td>
+                <button type="buton" class="btn btn-success" (click)="editRecord(record._id)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="deleteRecord(record._id">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
